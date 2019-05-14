@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmls:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="viewport" content="width=device-width"/>
+	<title>Cursos</title>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"></link>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.js"></link>
+</head>
+<body>
+
+<div class="container">
+		<div class="panel-heading" align="center">
+			<strong>Cadastro do Colaborador</strong>
+		</div>
+		<div class="panel-body">
+			<form class="form-horizontal" th:object="${usuario}" th:action="@{/usuario/salvarUsuario}" method="POST" style="margin: 10px">
+			<fieldset>
+				<div class="form-group row">
+							<label>Nome</label>
+							<input type="text" class="form-control input-sm" th:field="*{nome}" autofocus="autofocus" placeholder="Nome " maxlength="50"/>
+							<label>Sobrenome</label>
+							<input type="text" class="form-control input-sm" th:field="*{sobrenome}" autofocus="autofocus" placeholder="Sobrenome" maxlength="100"/>
+							<label>Telefone</label>
+							<input type="text" class="form-control input-sm" th:field="*{telefone}" autofocus="autofocus" placeholder="telefone" maxlength="10"/>
+							<label>Status</label>
+							<input type="email" class="form-control input-sm" th:field="*{status}" autofocus="autofocus" placeholder="status" maxlength="10"/>
+							<label>Senha</label>
+							<input type="password" class="form-control input-sm" th:field="*{senha}" autofocus="autofocus" placeholder="Senha" maxlength="10"/>
+												
+							</select>
+						</div>
+					</div>
+				
+				</fieldset>	
+			</div>
+			<div align="center">
+					<button type="submit" class="btn btn-sm btn-primary">Salvar</button>
+					<a th:href="@{/usuario/listarUsuario}" class="btn btn-sm btn-default">Cancelar</a>		
+				</div>
+				</form>
+			</div>
+		</div>	
+							
+</body>
+</html>

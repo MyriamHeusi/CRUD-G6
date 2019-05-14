@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmls:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="viewport" content="width=device-width"/>
+	<title>Cursos</title>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"></link>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.js"></link>
+</head>
+<body>
+
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<strong>Usuario</strong>
+	</div>
+	
+	<div class="panel-body">
+		<div class="table-responsive">
+			<table class="table table-sm table-striped table-hover table-bordered">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>CPF</th>
+						<th>Nome</th>
+						<th>Sobrenome</th>
+						<th>Email</th>
+						<th>Senha</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="usu : ${usuarios}">
+						<td th:text="${usu.id}"></td>
+						<td th:text="${usu.cpf}"></td>
+						<td th:text="${usu.nome}"></td>
+						<td th:text="${usu.sobrenome}"></td>
+						<td th:text="${usu.email}"></td>
+						<td th:text="${usu.senha}"></td>
+						<td>
+							<div class="btn-group pull-right">
+								<a class="btn btn-sm btn-primary" th:href="@{/usuario/alterarUsuario/{id}(id=${usu.id})}">Alterar</a>
+								<a class="delete btn btn-sm btn-danger"th:href="@{/usuario/excluirUsuario/{id}(id=${usu.id})}">Excluir</a>
+							</div>
+						</td>
+						</tr>	
+				</tbody>	
+			</table>
+		</div>
+		<div class="panel-footer">
+		<a class="btn btn-sm btn-success" th:href="@{/usuario/adicionarUsuario}" >Adicionar</a>
+	</div>	
+	</div>
+</body>
+</html>
